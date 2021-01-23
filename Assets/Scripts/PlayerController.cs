@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingGround;
     public Vector3 respawnPoint;
     public LevelManager gameLevelManager;
+    private bool isRightDirection = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,10 @@ public class PlayerController : MonoBehaviour
 
         if(movement > 0f){
             rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+            flip();
         }else if(movement < 0f){
             rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+            flip();
         }else{
             rigidBody.velocity = new Vector2 (0, rigidBody.velocity.y);
         }
@@ -50,6 +53,18 @@ public class PlayerController : MonoBehaviour
 
         if(other.tag == "Checkpoint"){
             respawnPoint = other.transform.position;
+        }
+    }
+
+    void flip(){
+        if (movement > 0f && !isRightDirection){
+            isRightDirection = true;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        
+        if (movement < 0f && isRightDirection ){
+            isRightDirection = false;
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }
