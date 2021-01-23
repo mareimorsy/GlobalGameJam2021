@@ -22,6 +22,7 @@ public class CoinScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
 
         if(other.tag == "Player"){
+            FindObjectOfType<AudioManager>().Play("Coin");
             gameLevelManager.AddCoins(coinValue);
             Debug.Log("Score = " + gameLevelManager.score);
             Destroy(gameObject);
