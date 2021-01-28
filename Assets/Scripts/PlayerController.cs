@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 respawnPoint;
     public LevelManager gameLevelManager;
     private bool isRightDirection = true;
+    public Animator m_Animator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,23 +23,29 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D> ();
         respawnPoint = transform.position;
         gameLevelManager = FindObjectOfType<LevelManager> ();
+        m_Animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+
+        m_Animator.SetBool("isGrounded", isTouchingGround);
+        
         movement = Input.GetAxis("Horizontal");
 
-        if(movement > 0f){
-            rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
-            flip();
-        }else if(movement < 0f){
-            rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
-            flip();
-        }else{
-            rigidBody.velocity = new Vector2 (0, rigidBody.velocity.y);
-        }
+        // if(movement > 0f){
+        //     rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+        //     flip();
+        // }else if(movement < 0f){
+        //     rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+        //     flip();
+        // }else{
+        //     rigidBody.velocity = new Vector2 (0, rigidBody.velocity.y);
+        // }
+
+        rigidBody.velocity = new Vector2 (speed, rigidBody.velocity.y);
 
         if(Input.GetButtonDown("Jump") && isTouchingGround){
             FindObjectOfType<AudioManager>().Play("Jump");
