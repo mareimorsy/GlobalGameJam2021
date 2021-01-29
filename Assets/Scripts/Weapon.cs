@@ -6,16 +6,17 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public PlayerController gamePlayer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gamePlayer = FindObjectOfType<PlayerController> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButtonDown("Fire1") && gamePlayer.speed != 0f){
             Shoot();
         }
         

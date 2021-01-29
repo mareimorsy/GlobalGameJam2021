@@ -17,24 +17,36 @@ public class PlayerController : MonoBehaviour
     private bool isRightDirection = true;
     public Animator m_Animator;
     public bool autoRun = true;
+    private float defaultSpeed;
     public SpriteRenderer sr;
+    public SpriteRenderer pressAnyKeySprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        pressAnyKeySprite.enabled = false;
         rigidBody = GetComponent<Rigidbody2D> ();
         respawnPoint = transform.position;
         gameLevelManager = FindObjectOfType<LevelManager> ();
         m_Animator = gameObject.GetComponent<Animator>();
+        defaultSpeed = speed;
         sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.anyKey && speed == 0f)
+        {
+            pressAnyKeySprite.enabled = false;
+            StartCoroutine(pressAnyKeyToContinue());
+            return;
+        }
+
         isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
 
         m_Animator.SetBool("isGrounded", isTouchingGround);
+        m_Animator.SetFloat("speed", speed);
         
         movement = Input.GetAxis("Horizontal");
 
@@ -61,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "FallDetector"){
+            speed = 0;
+            pressAnyKeySprite.enabled = true;
             gameLevelManager.Respawn();
         }
         if(other.tag == "Trap"){
@@ -84,12 +98,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator pressAnyKeyToContinue(){
+        yield return new WaitForSeconds(0.25f);
+        speed = defaultSpeed;
+    }
 
     IEnumerator Flash()
     {
-        for (int n = 0; n < 3; n++)
+        for (int n = 0; n < 2; n++)
         {
-            sr.color = new Color(1f,1f,1f,.5f);// is about 50% transparent
+            sr.color = new Color(1f,1f,1f,.25f);// is about 50% transparent
             yield return new WaitForSeconds(0.1f);
             sr.color = new Color(1f,1f,1f,1f);// is a normal sprite
             yield return new WaitForSeconds(0.1f);
