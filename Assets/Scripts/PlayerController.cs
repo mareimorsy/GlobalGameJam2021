@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public LevelManager gameLevelManager;
     private bool isRightDirection = true;
     public Animator m_Animator;
+    public bool autoRun = true;
+    public SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         respawnPoint = transform.position;
         gameLevelManager = FindObjectOfType<LevelManager> ();
         m_Animator = gameObject.GetComponent<Animator>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,17 +38,20 @@ public class PlayerController : MonoBehaviour
         
         movement = Input.GetAxis("Horizontal");
 
-        // if(movement > 0f){
-        //     rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
-        //     flip();
-        // }else if(movement < 0f){
-        //     rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
-        //     flip();
-        // }else{
-        //     rigidBody.velocity = new Vector2 (0, rigidBody.velocity.y);
-        // }
 
-        rigidBody.velocity = new Vector2 (speed, rigidBody.velocity.y);
+        if(autoRun){
+            rigidBody.velocity = new Vector2 (speed, rigidBody.velocity.y);
+        }else{
+            if(movement > 0f){
+                rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+                flip();
+            }else if(movement < 0f){
+                rigidBody.velocity = new Vector2 (movement * speed, rigidBody.velocity.y);
+                flip();
+            }else{
+                rigidBody.velocity = new Vector2 (0, rigidBody.velocity.y);
+            }
+        }
 
         if(Input.GetButtonDown("Jump") && isTouchingGround){
             FindObjectOfType<AudioManager>().Play("Jump");
@@ -56,6 +62,9 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "FallDetector"){
             gameLevelManager.Respawn();
+        }
+        if(other.tag == "Trap"){
+            StartCoroutine(Flash());
         }
 
         if(other.tag == "Checkpoint"){
@@ -72,6 +81,18 @@ public class PlayerController : MonoBehaviour
         if (movement < 0f && isRightDirection ){
             isRightDirection = false;
             transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+
+    IEnumerator Flash()
+    {
+        for (int n = 0; n < 3; n++)
+        {
+            sr.color = new Color(1f,1f,1f,.5f);// is about 50% transparent
+            yield return new WaitForSeconds(0.1f);
+            sr.color = new Color(1f,1f,1f,1f);// is a normal sprite
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

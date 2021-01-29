@@ -9,8 +9,10 @@ public class LevelManager : MonoBehaviour
     public float respawnDelay;
     // PlayerController Script
     public PlayerController gamePlayer;
+    public Health playerHealth;
 
     public int score = 0;
+    public int health = 3;
 
     public Text scoreText;
 
@@ -18,7 +20,9 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         gamePlayer = FindObjectOfType<PlayerController> ();
+        playerHealth = FindObjectOfType<Health> ();
         scoreText.text = "Score: " + score;
+        Debug.Log(playerHealth.health);
     }
 
     // Update is called once per frame
@@ -42,5 +46,19 @@ public class LevelManager : MonoBehaviour
     public void AddCoins( int numOfCoins){
         score += numOfCoins;
         scoreText.text = "Score: " + score;
+    }
+
+    public void GameOver(){
+        Debug.Log("Game Over");
+    }
+
+
+    public void Damage(){
+        health -= 1;
+        playerHealth.health = health;
+        Debug.Log(playerHealth.health);
+        if(health == 0){
+            GameOver();
+        }
     }
 }
