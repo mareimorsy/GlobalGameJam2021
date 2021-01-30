@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && isTouchingGround){
             FindObjectOfType<AudioManager>().Play("Jump");
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+            // rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+            rigidBody.AddForce(new Vector2(rigidBody.velocity.x, jumpSpeed), ForceMode2D.Impulse);
         }
     }
 

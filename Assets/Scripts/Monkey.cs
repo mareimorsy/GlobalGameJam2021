@@ -6,6 +6,7 @@ public class Monkey : MonoBehaviour
 {
     public Rigidbody2D rb2D;
     public float thrust = 10.0f;
+    private bool goUp = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,28 @@ public class Monkey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb2D.AddForce(transform.up * thrust);
-        
+
     }
+
+    void FixedUpdate()
+    {
+        if(goUp){
+            rb2D.AddForce(transform.up * thrust);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+
+        if(other.tag == "Player"){
+            Debug.Log("Entered");
+            gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            goUp = true;
+            FindObjectOfType<AudioManager>().Play("Monkey");
+            // FindObjectOfType<AudioManager>().Play("Coin");
+            // gameLevelManager.AddCoins(coinValue);
+            // Debug.Log("Score = " + gameLevelManager.score);
+            // Destroy(gameObject);
+        }
+    }
+
 }

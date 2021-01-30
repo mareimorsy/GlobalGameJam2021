@@ -1485,6 +1485,7 @@ GameObject:
   - component: {fileID: 752228140}
   - component: {fileID: 752228143}
   - component: {fileID: 752228142}
+  - component: {fileID: 752228144}
   m_Layer: 0
   m_Name: Monkey
   m_TagString: Untagged
@@ -1592,6 +1593,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 752228142}
   thrust: 10
+--- !u!61 &752228144
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752228139}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -53.383896, y: -19.977024}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 14.09, y: 16}
+    newSize: {x: 14.09, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 120.85785, y: 55.95404}
+  m_EdgeRadius: 0
 --- !u!1 &823139064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,7 +1953,7 @@ MonoBehaviour:
   respawnPoint: {x: 0, y: 0, z: 0}
   gameLevelManager: {fileID: 1131715615}
   m_Animator: {fileID: 865755562}
-  autoRun: 0
+  autoRun: 1
   sr: {fileID: 865755566}
   pressAnyKeySprite: {fileID: 1685916651}
 --- !u!1 &866343364
@@ -9615,6 +9642,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 865755566}
     - target: {fileID: 865755560, guid: 7c0cece81e239797e9ce4a1c3acdc771, type: 3}
+      propertyPath: autoRun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 865755560, guid: 7c0cece81e239797e9ce4a1c3acdc771, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 865755560, guid: 7c0cece81e239797e9ce4a1c3acdc771, type: 3}
       propertyPath: pressAnyKeySprite
       value: 
       objectReference: {fileID: 639468427}
@@ -9630,8 +9665,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5257083773999082593, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257083773999082593, guid: 7c0cece81e239797e9ce4a1c3acdc771,
+        type: 3}
       propertyPath: m_GravityScale
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5257083773999082594, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
@@ -9641,7 +9681,7 @@ PrefabInstance:
     - target: {fileID: 5257083773999082594, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.44
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5257083773999082594, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
