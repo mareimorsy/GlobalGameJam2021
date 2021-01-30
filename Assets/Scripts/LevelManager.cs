@@ -47,10 +47,11 @@ public class LevelManager : MonoBehaviour
         score += numOfCoins;
         scoreText.text = "Score: " + score;
     }
-
+    
+    
     public void GameOver()
     {
-       SceneManager.LoadScene(4); 
+     SceneManager.LoadScene(5);
     }
 
 
