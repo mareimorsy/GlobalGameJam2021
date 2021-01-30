@@ -114,4 +114,8 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+    public void Flicker(){
+        StartCoroutine(Flash());
+    }
 }

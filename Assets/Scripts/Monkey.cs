@@ -5,8 +5,10 @@ using UnityEngine;
 public class Monkey : MonoBehaviour
 {
     public Rigidbody2D rb2D;
+    public Rigidbody2D banana;
     public float thrust = 10.0f;
     private bool goUp = false;
+    public float bananaThrust = 500;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +34,13 @@ public class Monkey : MonoBehaviour
             gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(Up());
             FindObjectOfType<AudioManager>().Play("Monkey");
+            banana.bodyType = RigidbodyType2D.Dynamic;
+            banana.AddForce(Vector2.left * bananaThrust);
             // FindObjectOfType<AudioManager>().Play("Coin");
             // gameLevelManager.AddCoins(coinValue);
             // Debug.Log("Score = " + gameLevelManager.score);
             // Destroy(gameObject);
+            Destroy(gameObject, 6f);
         }
     }
 
