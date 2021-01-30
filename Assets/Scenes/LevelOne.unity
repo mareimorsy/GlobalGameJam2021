@@ -916,7 +916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 55.24, y: 0, z: -10}
+  m_LocalPosition: {x: 54.96, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2064316455}
@@ -1566,7 +1566,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752228139}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1576,7 +1576,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &752228143
@@ -1606,7 +1606,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -53.383896, y: -19.977024}
+  m_Offset: {x: -21.932508, y: -19.977024}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1617,7 +1617,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 120.85785, y: 55.95404}
+  m_Size: {x: 57.95506, y: 55.95404}
   m_EdgeRadius: 0
 --- !u!1 &823139064
 GameObject:
@@ -9283,6 +9283,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Monkey
+    clip: {fileID: 8300000, guid: ef9e0899b22f8280cb8ec08030ce46a1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &2031113479
 Transform:
   m_ObjectHideFlags: 0
@@ -9670,6 +9676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5257083773999082593, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257083773999082593, guid: 7c0cece81e239797e9ce4a1c3acdc771,
+        type: 3}
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
@@ -9681,7 +9692,7 @@ PrefabInstance:
     - target: {fileID: 5257083773999082594, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.16
+      value: 45.85
       objectReference: {fileID: 0}
     - target: {fileID: 5257083773999082594, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
