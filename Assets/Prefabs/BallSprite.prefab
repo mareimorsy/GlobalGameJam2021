@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 865755562}
   - component: {fileID: 7562944492084193015}
   - component: {fileID: 865755565}
-  - component: {fileID: 865755567}
+  - component: {fileID: 4726036978345059388}
   m_Layer: 0
   m_Name: BallSprite
   m_TagString: Player
@@ -162,10 +162,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: af9d971e2f954dd9aac7c6bf69af28ad, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpSpeed: 8
+  jumpSpeed: 15
   groundCheckPoint: {fileID: 1223312312}
   groundCheckRadius: 0.46
   groundLayer:
@@ -194,7 +194,8 @@ MonoBehaviour:
   gameLevelManager: {fileID: 0}
   m_Animator: {fileID: 7562944492084193015}
   autoRun: 1
-  sr: {fileID: 0}
+  sr: {fileID: 5257083773999082595}
+  pressAnyKeySprite: {fileID: 0}
 --- !u!60 &865755562
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6721822101863711165, guid: 161325ed2793728baaa1510cf3aa5de5,
     type: 3}
   gamePlayer: {fileID: 0}
---- !u!114 &865755567
+--- !u!114 &4726036978345059388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

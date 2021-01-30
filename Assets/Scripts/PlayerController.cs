@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "FallDetector"){
+            Debug.Log( "Damage " + other.tag);
+            gameLevelManager.Damage();
             speed = 0;
             pressAnyKeySprite.enabled = true;
             gameLevelManager.Respawn();
