@@ -27,16 +27,21 @@ public class Monkey : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
 
-        if(other.tag == "Player"){
+        if(other.tag == "Player" && !goUp){
             Debug.Log("Entered");
             gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            goUp = true;
+            StartCoroutine(Up());
             FindObjectOfType<AudioManager>().Play("Monkey");
             // FindObjectOfType<AudioManager>().Play("Coin");
             // gameLevelManager.AddCoins(coinValue);
             // Debug.Log("Score = " + gameLevelManager.score);
             // Destroy(gameObject);
         }
+    }
+
+    IEnumerator Up(){
+        yield return new WaitForSeconds(0.11f);
+        goUp = true;
     }
 
 }
