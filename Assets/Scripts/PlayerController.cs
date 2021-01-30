@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "Grass"){
+            other.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
         if(other.tag == "FallDetector"){
             Debug.Log( "Damage " + other.tag);
             gameLevelManager.Damage();
@@ -83,7 +86,6 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Trap"){
             StartCoroutine(Flash());
         }
-
         if(other.tag == "Checkpoint"){
             respawnPoint = other.transform.position;
         }

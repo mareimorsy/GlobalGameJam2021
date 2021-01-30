@@ -7,6 +7,8 @@ TagManager:
   - FallDetector
   - Checkpoint
   - Trap
+  - PlayerHead
+  - Grass
   layers:
   - Default
   - TransparentFX
