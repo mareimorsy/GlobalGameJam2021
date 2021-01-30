@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 //hello this is my first comment
 public class LevelManager : MonoBehaviour
 {
@@ -48,8 +48,9 @@ public class LevelManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void GameOver(){
-        Debug.Log("Game Over");
+    public void GameOver()
+    {
+       SceneManager.LoadScene(4); 
     }
 
 
