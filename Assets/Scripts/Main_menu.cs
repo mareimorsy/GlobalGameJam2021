@@ -9,6 +9,10 @@ public class Main_menu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
+    public void Skipnarrative()
+    {
+        SceneManager.LoadScene(4);
+    }
     
     public void QuitGame()
     {
