@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if(other.tag == "SafeZone"){
-            Debug.Log("SafeZone");
+            SceneManager.LoadScene(6);
         }
 
 
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
 
         if(other.tag == "Father"){
-            Debug.Log("Father");
+           SceneManager.LoadScene(8);
         }
     }
 

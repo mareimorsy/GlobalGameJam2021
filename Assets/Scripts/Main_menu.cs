@@ -23,4 +23,16 @@ public class Main_menu : MonoBehaviour
     {
       SceneManager.LoadScene(0);
     }
+    public void ok()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void playagain()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void Exit()
+    {
+    SceneManager.LoadScene(0);
+    }
 }
