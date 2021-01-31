@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         // }
         // Create Impact Effect
 
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1f);
     }
     
 }

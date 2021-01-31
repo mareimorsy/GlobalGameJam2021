@@ -29,6 +29,7 @@ public class Plant : MonoBehaviour
             if(!isDead){
             gameLevelManager.Damage();
             other.gameObject.GetComponent<PlayerController>().Flicker();
+            isDead = true;
             }
         }
     }

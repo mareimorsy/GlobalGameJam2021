@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6632850585660720254
+--- !u!1 &1268105370631015915
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6632850585660720253}
-  - component: {fileID: 6632850585660720252}
-  - component: {fileID: 6632850585660720255}
+  - component: {fileID: 1268105370631015917}
+  - component: {fileID: 1268105370631015914}
+  - component: {fileID: 1268105370631015919}
+  - component: {fileID: 1268105370631015916}
   m_Layer: 0
-  m_Name: BulletImpact
-  m_TagString: Untagged
+  m_Name: Checkpoint
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6632850585660720253
+--- !u!4 &1268105370631015917
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632850585660720254}
+  m_GameObject: {fileID: 1268105370631015915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.30684763, y: 0.28574634, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 82.15, y: -2.34, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6632850585660720252
+--- !u!212 &1268105370631015914
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632850585660720254}
+  m_GameObject: {fileID: 1268105370631015915}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,35 +71,56 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -350833791
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 5986030973748356752, guid: 907a19a0cc99bf04288d3b0c0d6afcfb,
-    type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: ffa743c34fee0bfe2bee6fbacc5aa21a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6632850585660720255
-Animator:
-  serializedVersion: 3
+--- !u!61 &1268105370631015919
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632850585660720254}
+  m_GameObject: {fileID: 1268105370631015915}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b626c69f287778ad8b1e7c1bc6fd7a0d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0519772, y: 8.788603}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.57, y: 3.42}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5514946, y: 29.914558}
+  m_EdgeRadius: 0
+--- !u!114 &1268105370631015916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268105370631015915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280f693578c0cb35b09f63f0a285e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redFlag: {fileID: 21300000, guid: ffa743c34fee0bfe2bee6fbacc5aa21a, type: 3}
+  greenFlag: {fileID: 21300000, guid: bdfcd60aa1b2301caa97025908e69e70, type: 3}
+  checkpointReached: 0
