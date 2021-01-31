@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && gamePlayer.speed != 0f){
+        if(Input.GetButtonDown("Fire2") && gamePlayer.speed != 0f){
             Shoot();
         }
         

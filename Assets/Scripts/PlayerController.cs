@@ -65,7 +65,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Jump") && isTouchingGround){
+        // if(Input.GetButtonDown("Jump") && isTouchingGround){
+        if(Input.GetButtonDown("Fire1") && isTouchingGround){
             FindObjectOfType<AudioManager>().Play("Jump");
             // rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
             rigidBody.AddForce(new Vector2(rigidBody.velocity.x, jumpSpeed), ForceMode2D.Impulse);
@@ -83,12 +84,12 @@ public class PlayerController : MonoBehaviour
         // if(other.tag == "Trap"){
         //     // StartCoroutine(Flash());
         // }
-        if(other.tag == "EatingPlant"){
-            if(!other.gameObject.GetComponent<Plant> ().isDead){
-                StartCoroutine(Flash());
-                gameLevelManager.Damage();
-            }
-        }
+        // if(other.tag == "EatingPlant"){
+        //     if(other.gameObject.GetComponent<Plant> ().isDead == false){
+        //         gameLevelManager.Damage();
+        //         StartCoroutine(Flash());
+        //     }
+        // }
         if(other.tag == "Checkpoint"){
             respawnPoint = other.transform.position;
         }
