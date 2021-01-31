@@ -97,6 +97,19 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "SafeZone"){
             Debug.Log("SafeZone");
         }
+
+
+
+
+
+
+
+
+
+
+        if(other.tag == "Father"){
+            Debug.Log("Father");
+        }
     }
 
     void flip(){

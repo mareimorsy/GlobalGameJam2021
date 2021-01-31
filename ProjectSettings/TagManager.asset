@@ -12,6 +12,7 @@ TagManager:
   - EatingPlant
   - Bullet
   - SafeZone
+  - Father
   layers:
   - Default
   - TransparentFX
