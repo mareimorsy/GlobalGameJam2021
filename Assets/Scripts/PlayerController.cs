@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Checkpoint"){
             respawnPoint = other.transform.position;
         }
+
+        if(other.tag == "SafeZone"){
+            Debug.Log("SafeZone");
+        }
     }
 
     void flip(){
