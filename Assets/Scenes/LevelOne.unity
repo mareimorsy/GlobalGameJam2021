@@ -5356,7 +5356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9693b5a97587e6440b995abf04e7f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsText: {fileID: 0}
 --- !u!1 &1131715614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,7 +5389,7 @@ MonoBehaviour:
   gamePlayer: {fileID: 0}
   playerHealth: {fileID: 0}
   score: 0
-  health: 3
+  health: 5
   scoreText: {fileID: 1223748660}
 --- !u!4 &1131715616
 Transform:
@@ -15149,6 +15148,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: 0.20163953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726036978345059388, guid: 7c0cece81e239797e9ce4a1c3acdc771,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726036978345059388, guid: 7c0cece81e239797e9ce4a1c3acdc771,
+        type: 3}
+      propertyPath: numOfHearts
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4726036978345059388, guid: 7c0cece81e239797e9ce4a1c3acdc771,
         type: 3}
