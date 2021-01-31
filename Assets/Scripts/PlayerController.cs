@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
         // if(other.tag == "Trap"){
         //     // StartCoroutine(Flash());
         // }
+        if(other.tag == "EatingPlant"){
+            if(!other.gameObject.GetComponent<Plant> ().isDead){
+                StartCoroutine(Flash());
+                gameLevelManager.Damage();
+            }
+        }
         if(other.tag == "Checkpoint"){
             respawnPoint = other.transform.position;
         }

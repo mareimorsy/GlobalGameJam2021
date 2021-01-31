@@ -9,6 +9,8 @@ TagManager:
   - Trap
   - PlayerHead
   - Grass
+  - EatingPlant
+  - Bullet
   layers:
   - Default
   - TransparentFX

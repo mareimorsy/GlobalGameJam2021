@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class Plant : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "Bullet"){
+            // m_Animator.SetTrigger("attack");
+            isDead = true;
+        }
     }
 }

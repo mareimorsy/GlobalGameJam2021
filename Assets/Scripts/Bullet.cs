@@ -20,12 +20,18 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null){
-            enemy.TakeDamage(enemy.damage);
+        // Enemy enemy = other.GetComponent<Enemy>();
+        // if (enemy != null){
 
+            if(other.tag == "EatingPlant"){
             Destroy(Instantiate(impactEffect, transform.position, transform.rotation), 0.9f);
-        }
+    //         m_Animator.SetTrigger("attack");
+                other.gameObject.GetComponent<Animator>().SetTrigger("hit");
+            }
+            // enemy.TakeDamage(enemy.damage);
+
+
+        // }
         // Create Impact Effect
 
         Destroy(gameObject, 1.5f);
