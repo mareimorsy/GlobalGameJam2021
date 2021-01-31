@@ -24,6 +24,7 @@ public class Trap : MonoBehaviour
         if(other.tag == "Player"){
             // FindObjectOfType<AudioManager>().Play("Coin");
             gameLevelManager.Damage();
+            other.gameObject.GetComponent<PlayerController>().Flicker();
             // Debug.Log("Score = " + gameLevelManager.score);
             // Destroy(gameObject);
         }
